@@ -1,19 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% for product in products %}
-<h3>{{ product.name }} {{ product.price}} Gel</h3>
-{% if product.price >= 500 %}
-<h2>ძვირადღირებული პროდუქტია</h2>
-<br>
-<hr>
-{% else %}
-<h2>ბიუჯეტური პროდუქტია</h2>
-<br>
-<hr>
+<div class="page">
+    <div class="section-head">
+        <h1 class="section-title">Products</h1>
+        <p class="section-sub">Everything we have right now.</p>
+    </div>
 
-{% endif %}
-{% endfor %}
+    <div class="product-grid">
+        {% for product in products %}
+        <div class="product-card" style="--i: {{ forloop.counter }}">
+            <div class="product-avatar">{{ product.name|first }}</div>
+            <h3 class="product-name">{{ product.name }}</h3>
 
+            {% if product.price >= 500 %}
+            <p class="tag tag-expensive">ძვირადღირებული პროდუქტია</p>
+            {% else %}
+            <p class="tag tag-budget">ბიუჯეტური პროდუქტია</p>
+            {% endif %}
 
+            <p class="product-price">{{ product.price }} <small>Gel</small></p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
