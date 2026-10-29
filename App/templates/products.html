@@ -1,27 +1,42 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="page">
-    <div class="section-head">
-        <h1 class="section-title">Products</h1>
-        <p class="section-sub">Everything we have right now.</p>
-    </div>
+<section class="wrap page">
+    <header class="page-head">
+        <div>
+            <span class="eyebrow reveal"><span class="dot"></span>Catalog</span>
+            <h1 class="page-title reveal">All <span class="accent">products</span></h1>
+        </div>
+        <p class="page-meta reveal"><strong>{{ products|length }}</strong>items available</p>
+    </header>
 
     <div class="product-grid">
         {% for product in products %}
-        <div class="product-card" style="--i: {{ forloop.counter }}">
-            <div class="product-avatar">{{ product.name|first }}</div>
-            <h3 class="product-name">{{ product.name }}</h3>
+        <article class="product-card reveal">
+            <div class="card-inner" data-tilt>
+                <div class="product-media">
+                    <span class="media-orb"></span>
+                    <span class="product-index">{{ forloop.counter|stringformat:"02d" }}</span>
+                    <span class="product-letter">{{ product.name|first }}</span>
+                </div>
 
-            {% if product.price >= 500 %}
-            <p class="tag tag-expensive">ძვირადღირებული პროდუქტია</p>
-            {% else %}
-            <p class="tag tag-budget">ბიუჯეტური პროდუქტია</p>
-            {% endif %}
+                <div class="product-body">
+                    <h3 class="product-name">{{ product.name }}</h3>
 
-            <p class="product-price">{{ product.price }} <small>Gel</small></p>
-        </div>
+                    {% if product.price >= 500 %}
+                    <p class="tag tag-expensive">ძვირადღირებული პროდუქტია</p>
+                    {% else %}
+                    <p class="tag tag-budget">ბიუჯეტური პროდუქტია</p>
+                    {% endif %}
+
+                    <div class="product-foot">
+                        <span class="price-label">Price</span>
+                        <p class="product-price">{{ product.price }}<span>₾</span></p>
+                    </div>
+                </div>
+            </div>
+        </article>
         {% endfor %}
     </div>
-</div>
+</section>
 {% endblock %}

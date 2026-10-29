@@ -1,10 +1,81 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="hero">
-    <div class="hero-pill">New products every week</div>
-    <h1 class="hero-title">Find something <span>you'll love</span></h1>
-    <p class="hero-sub">Simple, quality tech at prices that make sense.</p>
-    <a type="button" href="/products" class="btn btn-primary">Products</a>
+<section class="wrap hero">
+    <div class="hero-copy">
+        <span class="eyebrow reveal"><span class="dot"></span>Fresh picks, honest prices</span>
+        <h1 class="hero-title reveal">Tech that feels <span class="accent">just right.</span></h1>
+        <p class="hero-sub reveal">A small shop for the essentials: laptops, keyboards, monitors and more. Simple to browse, easy to love.</p>
+        <div class="hero-actions reveal">
+            <a type="button" href="/products" class="btn btn-primary pill-btn magnetic">
+                Products
+                <span class="btn-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+            <span class="hero-note"><span class="lari">₾</span>All prices in Georgian Lari</span>
+        </div>
+    </div>
+
+    <div class="hero-visual reveal" aria-hidden="true">
+        <div class="hv-glow"></div>
+        <div class="hv-ring"></div>
+        <div class="hv-core">
+            <span class="brand-mark big"><i></i><i></i><i></i><i></i></span>
+        </div>
+
+        <div class="tile t1">
+            <div class="tile-card">
+                <span class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="11" rx="2"/><path d="M2 19h20"/></svg></span>
+                <span class="tile-label">Laptops<small>Work anywhere</small></span>
+            </div>
+        </div>
+        <div class="tile t2">
+            <div class="tile-card">
+                <span class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+                <span class="tile-label">Monitors<small>See it all</small></span>
+            </div>
+        </div>
+        <div class="tile t3">
+            <div class="tile-card">
+                <span class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg></span>
+                <span class="tile-label">Keyboards<small>Type better</small></span>
+            </div>
+        </div>
+        <div class="tile t4">
+            <div class="tile-card">
+                <span class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="10" height="18" rx="5"/><path d="M12 7v3"/></svg></span>
+                <span class="tile-label">Mice<small>Click smoother</small></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="marquee reveal" aria-hidden="true">
+    <div class="marquee-track">
+        {% for i in "1234" %}
+        <div class="marquee-group">
+            <span>Laptops</span>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12 6.2-.6 11.4-5.8 12-12z"/></svg>
+            <span class="serif">Keyboards</span>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12 6.2-.6 11.4-5.8 12-12z"/></svg>
+            <span>Monitors</span>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12 6.2-.6 11.4-5.8 12-12z"/></svg>
+            <span class="serif">Mice</span>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12 6.2-.6 11.4-5.8 12-12z"/></svg>
+        </div>
+        {% endfor %}
+    </div>
 </div>
+
+<section class="wrap">
+    <div class="cta-band reveal">
+        <div>
+            <h2>Ready to take a <span class="accent">look around?</span></h2>
+            <p>Every product, all in one place.</p>
+        </div>
+        <a href="{% url 'products' %}" class="btn pill-btn light magnetic">
+            See all products
+            <span class="btn-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+    </div>
+</section>
 {% endblock %}
