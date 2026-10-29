@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for product in products %}
+<h3>{{ product.name }} {{ product.price}} Gel</h3>
+{% if product.price >= 500 %}
+<h2>ძვირადღირებული პროდუქტია</h2>
+<br>
+<hr>
+{% else %}
+<h2>ბიუჯეტური პროდუქტია</h2>
+<br>
+<hr>
+
+{% endif %}
+{% endfor %}
+
+
+{% endblock %}
